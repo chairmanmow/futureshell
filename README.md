@@ -9,14 +9,14 @@ If you install this on your BBS it won't break it, but you should know how to ac
 Here's some things you can learn : 
 
 
-• how to create a tree menu (if you had to do a basic customization this would be the first place to start)
-• how to use frames (this would be where you can customize colors)
-• how to grab rss feeds and parse them and use a timer to keep them fresh (you can add your own feeds to an array)
-• how to make json-chat and connect to a server
-• how to do conditional formatting (if me show this else show that)
-• how to display a random ansi (loading a random file from a directory)
-• how to use message base objects and interact with them (that's how the bottom right frame works);
-• how to use other people's code and make it do what you expect it to
+• how to create a tree menu (if you had to do a basic customization this would be the first place to start)<br>
+• how to use frames (this would be where you can customize colors)<br>
+• how to grab rss feeds and parse them and use a timer to keep them fresh (you can add your own feeds to an array)<br>
+• how to make json-chat and connect to a server<br>
+• how to do conditional formatting (if me show this else show that)<br>
+• how to display a random ansi (loading a random file from a directory)<br>
+• how to use message base objects and interact with them (that's how the bottom right frame works);<br>
+• how to use other people's code and make it do what you expect it to<br>
 
 oh, and how to write sloppy code!  
 
