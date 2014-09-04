@@ -3,8 +3,8 @@
 load("chsh-menu-func.js");
 
 
-var menuOnInfo = "\1h\1m(\1g\1i\1gON!\1n\1h\1m) \1yM\1h\1gake \1mchoice \1cor \1n\1y\1iTAB \1n\1h\1rto chat <---";
-var menuOnChat = "\1h\1y\1iTAB\1n\1h\1r <--- for chat \1cMENU IS ACTIVE \1i\1g--->";
+var menuOnInfo = "\1h\1yMenu is ACTIVE.";
+var menuOnChat = "\1h\1bPress\1c TAB\1b to reactive Chat";
 
 function switchOutMenu(){
 		//loadBanner();
@@ -30,31 +30,31 @@ load("tree.js");
 
 var tree=new Tree(menuFrame,"My Menu");
 tree.colors = {
-		fg:LIGHTMAGENTA,
+		fg:BLACK,
 		// non-current item/empty space background 
-		bg:BG_BLUE,
+		bg:BG_LIGHTGRAY,
 		// current item foreground
-		lfg:LIGHTGREEN,
+		lfg:WHITE,
 		// current item background
-		lbg:BG_GREEN,
+		lbg:BG_BLACK,
 		// current tree heading foreground
-		cfg:WHITE,
+		cfg:MAGENTA,
 		// current tree heading background
-		cbg:BG_BLACK,
+		cbg:BG_CYAN,
 		// disabled item foreground
 		dfg:DARKGRAY,
 		// hotkey foreground
-		kfg:YELLOW,
+		kfg:MAGENTA,
 		// tree branch foreground
 		tfg:BLUE,
 		// tree heading foreground
-		hfg:WHITE,
+		hfg:BLACK,
 		// tree heading background
-		hbg:BG_BLUE,
+		hbg:BG_LIGHTGRAY,
 		// tree expansion foreground
 		xfg:LIGHTCYAN
 	}
-tree.addItem("e|xit menu back to chat",switchOutMenu);
+tree.addItem("TAB switches menu and Chat",switchOutMenu);
 tree.addItem("interface help|?",shellHelp);
 tree.addItem("random piece of |art",randomArt);
 tree.addItem("e-|mail and messages", netMailSection);
@@ -80,8 +80,10 @@ var gameTree = tree.addTree("|games",switchOutMenu);
 		classicDoorTree.addItem("|2 l.o.r.d. II",lord2BLink);
 				classicDoorTree.addItem("|pimp wars",pimpBLink);
 		classicDoorTree.addItem("|planet t.e.o.s.",teosBLink);
-		classicDoorTree.addItem("|operation overkill ii",overkillBLink);		
-			classicDoorTree.addItem("|oregon trail test", oregonTrail);
+		classicDoorTree.addItem("|operation overkill ii",overkillBLink);
+classicDoorTree.addItem("lunati|x",lunatix);
+classicDoorTree.addItem("|bbs crash",bbsCrash);
+			classicDoorTree.addItem("|oregon trail(in Games Section", xtrnMenuSec);
 
 	
 
@@ -136,6 +138,9 @@ var bbsFunctionTree = tree.addTree("|bbs functions");
 	bbsFunctionTree.addItem("|node activity log",listNodeActivity);
 	bbsFunctionTree.addItem("bbs |auto message",autoMsg);
 	bbsFunctionTree.addItem("interbbs |ANSI machine",ansiWall);
+if(user.compare_ars("SYSOP or EXEMPT Q or I or N") || (bbs.sys_status&SS_TMPSYSOP)) {  //Sysop menu
+bbsFunctionTree.addItem("s|ysop menu", sysopMenu);
+}
 tree.addItem("|logoff",logoffTheBBS);
 tree.addItem("|page sysop",bbs.page_sysop);
 
@@ -215,7 +220,7 @@ function commandConfirm()
 			y=		parseInt(console.screen_rows/6),
 			width=	console.screen_columns/2,
 			height=	parseInt(console.screen_rows/2),
-			attr= dynamicFrameBG|dynamicFrameFG,
+			attr= popUpFrameBG|popUpFrameFG,
 			parent=	js.global.frame
 	);
 	

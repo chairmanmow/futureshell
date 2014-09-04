@@ -2,6 +2,19 @@ function logoffTheBBS(){
 console.printfile("../text/logoff.msg");
 bbs.hangup();
 }
+
+function sysopMenu() {
+        caseDesc = "SYSOP MENU";
+                        commandConfirm();
+                        bbs.menu("sysmain");
+    str=get_next_str("",40,0,false);
+                        str_cmds(str);
+console.pause();
+                        refreshScreen();
+
+                        return;
+                        }
+
 function bbsScene() {
 	caseDesc = "IRC NETWORK";
 			commandConfirm();
@@ -203,9 +216,22 @@ function traditionalForum() {
 			commandConfirm();
 			bbs.exec_xtrn("TWBBSLK");
 			refreshScreen();
-			return;
+	    return
 }
-
+        function lunatix() {
+                        caseDesc = "haven't got to play it, i hear it's cool";
+                        commandConfirm();
+                        bbs.exec_xtrn("LUNATIX");
+	    refreshScreen();
+            return
+}
+        function bbsCrash() {
+                        caseDesc = "haven't got to play it, i hear it's cool";
+                        commandConfirm();
+                        bbs.exec_xtrn("BBSCRASH");
+            refreshScreen();
+            return
+}
 	function randomArt() {
 			caseDesc = "Enjoy some futuristic graffiti";
 			commandConfirm();
@@ -234,56 +260,11 @@ function traditionalForum() {
 			refreshScreen();
 			return;
 }
-	function lord2Door() {
-			caseDesc = "Everyone loves LORD,\r\n here's the graphical sequel";
-			commandConfirm();
-			bbs.exec_xtrn("LORDII");
-			refreshScreen();
-			return;
-}
 
-	function foodFight() {
-			caseDesc = "A door game about Food Fighting Duh!  another staple";
-			commandConfirm();
-			bbs.exec_xtrn("FOODFITE");
-			refreshScreen();
-			return;
-}
-
-	function thePit() {
-			caseDesc = "Become the best Gladiator in  the World \r\n It helps to have a numeric keypad";
-			commandConfirm();
-			bbs.exec_xtrn("THEPIT");
-			refreshScreen();
-			return;
-}
-
-function mechWars(){
-caseDesc = "BUILD a MECH \r\n and TAKE OVER THE UNIVERSE";
-			commandConfirm();
-			bbs.exec_xtrn("MECHWARS");
-			refreshScreen();
-			return;
-}
-
-function beastsDomain(){
-caseDesc = "TAKE DOWN THE BEAST";
-			commandConfirm();
-			bbs.exec_xtrn("TBD");
-			refreshScreen();
-			return;
-}
-function falconEye(){
-caseDesc = "The falcon's EYE is quicker \r\n than the falcon's HAND";
-			commandConfirm();
-			bbs.exec_xtrn("FALCONEY");
-			refreshScreen();
-			return;
-} 
 function planetTeos(){
 caseDesc = "Explore Space and destroy time";
 			commandConfirm();
-			bbs.exec_xtrn("PLANETEO");
+			bbs.exec_xtrn("TEOSBLNK");
 			refreshScreen();
 			return;
 }

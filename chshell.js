@@ -11,7 +11,7 @@ load("chsh-maint-funcs.js");  // has things like screen redraws
 load("chsh-msg-funcs.js");  // has the function that controls the bottom right frames
 //load("rss-ticker.js");  // same problem with chat-funcs... moved to bottom of main
 //load("chsh-msg-tree.js");
-load("json-chat.js");  // needed for chat
+load("jsonchathack.js");  // needed for chat
 load("json-client.js"); // see above
 load("coldfuncs.js"); // i forget why i need this
 load("event-timer.js");
@@ -82,7 +82,7 @@ function chatLoop() {
 var msgstring = new String;
 //var chat_options = load("modopts.js","jsonchat");
 var chat_client = new JSONClient("127.0.1.1",10088);
-var chat = new JSONChat(user.number,chat_client,"127.0.1.1",10088);
+var chat = new JSONChatHack(user.number,chat_client,"127.0.1.1",10088);
 var channels = [];
 var channels_map = [];
 var channel_index = 0;
@@ -246,29 +246,23 @@ function printMessage(chan,msg) {
  		
 	if(!msg.nick)
 	{
-			chatOutput.cleartoeol();
-			chatOutput.putmsg(msg.str);
-			chatOutput.cleartoeol();
-			dynamicFrame.cycle();
-			return;
+			return msg.str;
 	}
 		
 
 		msgstring =  "[" + chan.name + "]" + msg.nick.name + ":" + msg.str;  // this is the original code to construct a msgstring variable
 //conditional formatting - is the message sent from you or someone else?		
-			
+			var strChat = "";
 		if(msg.nick.name == user.alias)
 		{
-		chatOutput.putmsg(chan.name, chatOutputChnMeBG|chatOutputChnMeFG);
-		chatOutput.putmsg(msg.nick.name, chatOutputNickMeBG|chatOutputNickMeFG);  		
-		chatOutput.putmsg(":" + msg.str,chatOutputMsgMeBG|chatOutputMsgMeFG);
+		    strChat = "\1c" +  chan.name + "\1h\1y" +  msg.nick.name + "\1n\1w:" + msg.str;
+		    return strChat;
 		
 		}
 		else
 		{
-		chatOutput.putmsg(chan.name, chatOutputChnYouBG|chatOutputChnYouFG);
-		chatOutput.putmsg(msg.nick.name, chatOutputNickYouBG|chatOutputNickYouFG);  		
-		chatOutput.putmsg(":" + msg.str,chatOutputMsgYouBG| chatOutputMsgYouFG);
+		strChat = "\1h\1c" +  chan.name + "\1h\1r" +  msg.nick.name + "\1n:\1h\1w" + msg.str;
+                    return strChat;
 		}
 	}
 
@@ -451,13 +445,13 @@ function rssTicker(){
 	
 	function rssArticle() {
 		alertFrame.clear();
-			alertFrame.putmsg(f.channels[rssChannelIndex].items[rssItemIndex].title.substring(0,79), BG_MAGENTA|itemUpdateFG);
+			alertFrame.putmsg(f.channels[rssChannelIndex].items[rssItemIndex].title.substring(0,79), BG_CYAN|itemUpdateFG);
 			//alertFrame.putmsg(f.channels[rssChannelIndex].items[rssItemIndex].author + "");
 			var itemUpdateTimeTrim = f.channels[rssChannelIndex].items[rssItemIndex].date.updated.substring(0,f.channels[rssChannelIndex].items[rssItemIndex].date.updated.indexOf(" +0000"));
 			alertFrame.putmsg(itemUpdateTimeTrim + "", itemUpdateTimeBG|itemUpdateTimeFG);
 			//alertFrame.putmsg(f.channels[rssChannelIndex].items[rssItemIndex].body + "");	
 			alertFrame.cycle();
-			rssArticleTitle[rssItemIndex] = "\1r" + itemUpdateTimeTrim + "\1y=-="  + f.channels[rssChannelIndex].items[rssItemIndex].title
+			rssArticleTitle[rssItemIndex] =  itemUpdateTimeTrim + f.channels[rssChannelIndex].items[rssItemIndex].title;
 			tickerLoopIndex++;
 			rssItemIndex++;
 			

@@ -1,83 +1,84 @@
 load("sbbsdefs.js");
 load("frame.js");
 
+
+//let's call this the colorblind version
 // IF YOU WANT TO CUSTOMIZE THE LOOK OF YOUR SHELL THIS IS THE PLACE
 
 // first you can change the colors for most elements, and afterwards is some more complicated stuff that effects frame location that 
 // is really only to be messed with if you understand it.  some of the stuff is a little backwards in there.  
 
-var menuFileLocation = "/sbbs/text/13x40.txt";  // you can change this to whereever you want your menu file to go
-
 // ########################### COLOR VARIABLES AND DECLARATIONS v . 2 #######################################
 
 //RSS ticker colors
-var channelTitleBG = BG_RED;
-var channelUpdateTimeBG = BG_GREEN;
+var channelTitleBG = BG_BLACK;
+var channelUpdateTimeBG = BG_RED;
 var itemUpdateTimeBG = BG_BLACK;
+var itemUpdateBG = BG_BLACK;
 
-var channelTitleFG = YELLOW;
+var channelTitleFG = MAGENTA;
 var channelUpdateTimeFG = CYAN;
-var itemUpdateFG = YELLOW;
-var itemUpdateTimeFG = CYAN;
+var itemUpdateFG = BLACK;
+var itemUpdateTimeFG = BLACK;
 
 //BG COLORS
 chatOutputBG = BG_BLACK;
-chatInputBG = BG_LIGHTGRAY;
-msgBoardBG = BG_CYAN;
-msgBoardDateBG = BG_BLUE;
-msgBoardNameBG = BG_GREEN;
-msgBoardNameMeBG = BG_LIGHTGRAY;
-msgBoardTopicBG = BG_CYAN;
-msgBoardTitleBG = BG_MAGENTA;
-dynamicFrameBG = BG_MAGENTA;
-alertFrameBG = BG_RED;
-menuFrameBG = BG_BLUE;
+chatInputBG = BG_BLUE;
+msgBoardBG = BG_BLACK;
+msgBoardDateBG = BG_BLACK
+msgBoardNameBG = BG_BLACK;
+msgBoardNameMeBG = BG_BLACK;
+msgBoardTopicBG = BG_BLACK;
+msgBoardTitleBG = BG_BLACK;
+dynamicFrameBG = BG_CYAN;
+alertFrameBG = BG_BLACK;  //this is where the banners load
+menuFrameBG = BG_LIGHTGRAY;
 menuBarFrameBG = BG_BLACK;
 chatOutputChnMeBG = BG_BLACK;
 chatOutputChnYouBG = BG_BLACK;
-chatOutputNickMeBG = BG_LIGHTGRAY;
-chatOutputNickYouBG = BG_GREEN;
+chatOutputNickMeBG = BG_BLACK;
+chatOutputNickYouBG = BG_BLACK;
 chatOutputMsgMeBG = BG_BLACK;
 chatOutputMsgYouBG = BG_BLACK;
 chanJoinBG = BG_CYAN;
-infoFrameABG = BG_BLACK;
-infoFrameBBG = BG_BROWN;
-infoFrameCBG = BG_MAGENTA;
-popUpFrameBG = BG_MAGENTA;
+infoFrameABG = BG_BLACK;  //this is a menu indicator
+infoFrameBBG = BG_GREEN;  //  this is the Group
+infoFrameCBG = BG_GREEN;  //this is one of the ones at the bottom
+popUpFrameBG = BG_RED;
 
 // Foreground colors
 
 chatOutputFG = GREEN;
-chatInputFG = RED;
-msgBoardFG = MAGENTA;
+chatInputFG = WHITE;
+msgBoardFG = YELLOW;
 msgBoardDateFG = LIGHTCYAN;
-msgBoardNameFG = WHITE;
-msgBoardNameMeFG = RED;
-msgBoardTopicFG = BLACK;
+msgBoardNameFG = LIGHTRED;
+msgBoardNameMeFG = YELLOW;
+msgBoardTopicFG = LIGHTGRAY;
 msgBoardTitleFG = LIGHTGREEN;
 dynamicFrameFG = YELLOW;
-alertFrameFG = YELLOW;
+alertFrameFG = BLACK;
 menuFrameFG = BLACK;
 menuBarFrameFG = LIGHTGREEN;
-chatOutputChnMeFG = WHITE;
-chatOutputChnYouFG = LIGHTGRAY;
-chatOutputNickMeFG = RED;
-chatOutputNickYouFG = WHITE;
-chatOutputMsgMeFG = LIGHTRED;
-chatOutputMsgYouFG = LIGHTCYAN;
-chanJoinFG = YELLOW;
+chatOutputChnMeFG = CYAN;
+chatOutputChnYouFG = LIGHTCYAN;
+chatOutputNickMeFG = YELLOW;
+chatOutputNickYouFG = LIGHTRED;
+chatOutputMsgMeFG = LIGHTGRAY;
+chatOutputMsgYouFG = WHITE;
+chanJoinFG = RED;
 infoFrameAFG = LIGHTRED;
-infoFrameBFG = WHITE;
-infoFrameCFG = LIGHTGREEN;
-popUpFrameFG = YELLOW;
+infoFrameBFG = BLACK;
+infoFrameCFG = BLACK;
+popUpFrameFG = WHITE;
 
 //  MSG BOARD STRING CONDITIONAL FORMAT COLORS
 var msgBoaoardToMeDateFG = LIGHTCYAN;
-var msgBoaoardToMeDateBG = BG_GREEN;
-var msgBoardnameToMeSenderNameFG = LIGHTMAGENTA;
-var msgBoardnameToMeSenderNameBG = BG_BLUE;
-var msgBoardToMeTopicFG = YELLOW;
-var msgBoardToMeTopicBG = BG_RED;
+var msgBoaoardToMeDateBG = BG_BLACK;
+var msgBoardnameToMeSenderNameFG = GREEN;
+var msgBoardnameToMeSenderNameBG = BG_BLACK;
+var msgBoardToMeTopicFG = WHITE;
+var msgBoardToMeTopicBG = BG_BLACK;
 
 
 //this draws the in the top right frame a menu and is mostly a stub for now as it's easy
@@ -126,6 +127,9 @@ var chatOutput = new Frame(
 	height=	chatOutputHeight,
 	attr= chatOutputBG|chatOutputFG
 );
+
+chatOutput.word_wrap = true;
+
 var chatInputYpos = yScreenRows-9;
 
 var chatInput = new Frame(
@@ -135,6 +139,8 @@ var chatInput = new Frame(
 	height=	4,
 	attr= chatInputBG|chatInputFG
 );
+//chatInput.word_wrap = true;
+
 var chatInputFeedback = new Frame(
 	x=		1,
 	y=		chatInputYpos + 4,

@@ -3,8 +3,8 @@
 // the other functions are mainly for first draws and initialization
 load ("frame.js");
 
-var menuOffChat = "\1h\1rType to chat \1h\1gor \1y\1iTAB\1n\1h\1c for \1mMENU MODE\1g--->";
-var menuOffInfo = "\1i\1h\1r<\1w-\1r-\1w-\1r\1n\1h\1r Chatting \1y\1iTAB\1n\1h\1c for \1h\1mMENU MODE\1c(\1r\1iOFF\1n\1c)";
+var menuOffChat = "\1h\1yType to chat or TAB to active Menu";
+var menuOffInfo = "\1h\1bChatting. Press \1cTAB\1b for \1wMENU.";
 
 function refreshScreen() {
 	//randomANSI();
