@@ -1,17 +1,17 @@
 Description of Files and What they do, and What needs to be done with them :
 <br>
-chshell.js - contains the guts of the programs main logic, control flow, chat,menu switching, rss feeds,<br>
+• chshell.js - contains the guts of the programs main logic, control flow, chat,menu switching, rss feeds,<br>
    do not edit chshell.js unless you are working on an issue, it has nothing to be edited.  known issues included you can not receive chat while you are entering text (i want to fix this).
 <br>
-chsh-ctl-func.js - Contains some menu logic that you may want to edit starting at line 31.  Tree is the js library used for menu functions, and you can see your exec/load/tree.js file for more info on how it works.  you don't want to change any of the code after line 147 for the menu.  the rest is other logic that controls what's going on with the menu system.
+• chsh-ctl-func.js - Contains some menu logic that you may want to edit starting at line 31.  Tree is the js library used for menu functions, and you can see your exec/load/tree.js file for more info on how it works.  you don't want to change any of the code after line 147 for the menu.  the rest is other logic that controls what's going on with the menu system.
 <br>
-jsonchathack.js - is basically json chat with a few altered strings for my liking and adding a beep function when someone joins (basically for me so i notice if someone logs on while i'm idling for now)
+• jsonchathack.js - is basically json chat with a few altered strings for my liking and adding a beep function when someone joins (basically for me so i notice if someone logs on while i'm idling for now)
 <br>
-chshlayout.js - contains a lot of color options, as well as frame sizing information if you can decipher it.  edit this file as long as you feel comfortable with what you're doing.
+•chshlayout.js - contains a lot of color options, as well as frame sizing information if you can decipher it.  edit this file as long as you feel comfortable with what you're doing.
 <br>
-chsh-maint-funcs.js - don't edit this file, it's got a bunch of crap in it, unless you're working on a bug.  it could be here, or maybe this a good place to store a hack.
+• chsh-maint-funcs.js - don't edit this file, it's got a bunch of crap in it, unless you're working on a bug.  it could be here, or maybe this a good place to store a hack.
 <br>
-chsh-menu-funcs.js - this is an ugly file that could definitely have some better constructor functions, ala <br>
+• chsh-menu-funcs.js - this is an ugly file that could definitely have some better constructor functions, ala <br>
 var myExternalProgram = new XTRN("XTRNCODE","This External program is my favorite, I'm sure you'll enjoy it"). <br>
 the above function does not exist... basically this is just a hodge podge of functions that get executed when you select things from the tree, the tree menu calls a function and those are stored here.  if you want to add new stuff to the tree : <br>
 
