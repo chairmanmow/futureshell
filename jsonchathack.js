@@ -174,6 +174,7 @@ function JSONChatHack(usernum,jsonclient,host,port) {
 		case "SUBSCRIBE":
 			channel.messages.push(new Message("",packet.data.nick + " is here.",Date.now()));
 			channel.users = getUserList(this,channel);
+		    console.beep();
 			break;
 		case "UNSUBSCRIBE":
 			channel.messages.push(new Message("",packet.data.nick + " has left.",Date.now()));

@@ -243,7 +243,7 @@ function traditionalForum() {
 			return;
 			}
 	function oregonTrail() {
-			caseDesc = "This is an unfinished project of an attempt to port \r\n some ancient BASIC code to javascript";
+			caseDesc = "Larry Lagomorph wrote this game, to play, please select option [2]Games, and then [2]oregontrail. Trying to find a better way to launch this";
 			commandConfirm();
 			//js.global.frame.close();
 			fixFrame2();

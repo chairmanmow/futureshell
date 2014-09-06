@@ -358,6 +358,7 @@ function getInput() {
 					g = console.inkey(500);
 					chatInput.putmsg(g,chatInputBG|chatInputFG);  		
 					msgString2 = msgString2 + g;
+updateLocalCache(); 
 					chat.cycle();
 					chatInput.cycle(); 
 					if(g == '\r' || g == '\n' || g == '\t' || g == KEY_UP || g == KEY_DOWN || g == KEY_RIGHT || g == KEY_LEFT){
