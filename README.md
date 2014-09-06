@@ -1,7 +1,7 @@
-Description of Files and What they do, and What needs to be done with them :
+Description of Files and What they do, and What needs to be done with them :<br>
 <br>
 • chshell.js - contains the guts of the programs main logic, control flow, chat,menu switching, rss feeds,<br>
-   do not edit chshell.js unless you are working on an issue, it has nothing to be edited.  known issues included you can not receive chat while you are entering text (i want to fix this).
+   do not edit chshell.js unless you are working on an issue or want to connect to a group server (recommended, email me), it has nothing to be edited.  known issues included you can not receive chat while you are entering text (i want to fix this).
 <br><br>
 • chsh-ctl-func.js - Contains some menu logic that you may want to edit starting at line 31.  Tree is the js library used for menu functions, and you can see your exec/load/tree.js file for more info on how it works.  you don't want to change any of the code after line 147 for the menu.  the rest is other logic that controls what's going on with the menu system.
 <br><br>
