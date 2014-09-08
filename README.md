@@ -5,7 +5,7 @@ Description of Files and What they do, and What needs to be done with them :<br>
 <br><br>
 • chsh-ctl-func.js - Contains some menu logic that you may want to edit starting at line 31.  Tree is the js library used for menu functions, and you can see your exec/load/tree.js file for more info on how it works.  you don't want to change any of the code after line 147 for the menu.  the rest is other logic that controls what's going on with the menu system.
 <br><br>
-• jsonchathack.js - is basically json chat with a few altered strings for my liking and adding a beep function when someone joins (basically for me so i notice if someone logs on while i'm idling for now)
+• jsonchathack.js - is basically json chat with a few altered strings for my liking and adding a beep function when someone joins (basically for me so i notice if someone logs on while i'm idling for now).  also, i'm keeping my fingers crossed this doesn't screw something else up.  
 <br><br>
 •chshlayout.js - contains a lot of color options, as well as frame sizing information if you can decipher it.  edit this file as long as you feel comfortable with what you're doing.
 <br><br>
