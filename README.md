@@ -1,3 +1,5 @@
+this is pretty ugly/unorganized code someone ask ed me to post to see some things.  haven't run it in a bit, but it was the basis for the first shell that was deployed on Futureland.
+
 Description of Files and What they do, and What needs to be done with them :<br>
 <br>
 • chshell.js - Contains the guts of the programs main logic, control flow, chat,menu switching, rss feeds,<br>
